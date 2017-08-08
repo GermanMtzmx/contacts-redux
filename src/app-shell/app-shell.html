@@ -1,16 +1,35 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+
+<!-- elements import  -->
+
+<link rel="import" href="../app-contacts/app-contacts.html">
 
 <dom-module id="app-shell">
 
 	<template>
 		<h1>Im shell</h1>
+		<app-location route="{{currentRoute}}"></app-location>
+
+		<app-route route="[[currentRoute]]" pattern="/:view" data="{{routeData}}"></app-route>
+
+		<a href="/contacts">go contacts</a>
+
+		<iron-pages selected="[[routeData.view]]" attr-for-selected="view" fallback-selection="default">
+			<app-contacts view="contacts"></app-contacts>
+			<div view="default"> Default content</div>
+		</iron-pages>
+
 	</template>
 
-
+	
 	<script>
 		(function shell(customElements){
 			'use strict';
-			
+
 			class AppShell extends Polymer.Element {
 				static get is() {return 'app-shell';}
 			}
