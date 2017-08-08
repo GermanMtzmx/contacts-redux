@@ -1,0 +1,30 @@
+<!-- Redux mixin -->
+<script src="../../node_modules/redux/dist/redux.js"></script>
+<link rel="import" href="../../bower_components/polymer-redux/polymer-redux.html">
+
+<script>
+	// set initial store
+	const initial = {
+		contacts:[],
+		contactSelected:{}
+	};
+
+	// set new reducer
+	const reducer = (state,action) => {
+		switch(action.type) {
+
+			case 'ADD_CONTACT':
+				//should clone state and then returnit
+				return state
+
+			default:
+				return state;
+		}
+	};
+
+	// create new store with initial and reducer
+
+	const store = Redux.createStore(reducer,initial);
+	// Set redux mixin
+	ReduxMixin = PolymerRedux(store);
+</script>

@@ -1,0 +1,22 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="app-shell">
+
+	<template>
+		<h1>Im shell</h1>
+	</template>
+
+
+	<script>
+		(function shell(customElements){
+			'use strict';
+			
+			class AppShell extends Polymer.Element {
+				static get is() {return 'app-shell';}
+			}
+
+			customElements.define(AppShell.is,AppShell);
+		})(window.customElements);
+	</script>
+	
+</dom-module>
