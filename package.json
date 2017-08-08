@@ -1,0 +1,27 @@
+{
+  "name": "contacts-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GermanMtzmx/contacts-redux.git"
+  },
+  "keywords": [
+    "redux",
+    "redux-contacts",
+    "polymer-redux"
+  ],
+  "author": "German Martinez Solis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GermanMtzmx/contacts-redux/issues"
+  },
+  "homepage": "https://github.com/GermanMtzmx/contacts-redux#readme",
+  "dependencies": {
+    "redux": "^3.7.2"
+  }
+}
