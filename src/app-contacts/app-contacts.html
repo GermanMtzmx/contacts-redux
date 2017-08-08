@@ -12,7 +12,7 @@
 		<app-add-contact></app-add-contact>
 		
 		<template is="dom-repeat" items="[[contacts]]" as="contact">
-			<p>[[index]] , [[contact.name]]</p>
+			<p position="[[index]]" on-click="_choose"> [[index]] , [[contact.name]]</p>
 		</template>
 
 
@@ -29,16 +29,39 @@
 						contacts:{
 							type:Array,
 							statePath:'contacts'
+						},
+
+						//for debugin papu
+						contactSelected:{
+							type:Object,
+							statePath:'contactSelected',
+							observer:'_selectedChanged'
 						}
+
+
 					};
 				}
 
-				connectedCallback(){
-					super.connectedCallback();
-					console.log(this.contacts);
-
+				static get actions(){
+					return {
+						selectedContact(selected){
+							return {
+								type:'CONTACT_SELECTION',
+								selected
+							}
+						}
+					}
 				}
 
+				_selectedChanged(){
+					console.log("soomeone updated selected",this.contactSelected);
+				}
+
+				_choose(event){					
+					let selected = this.contacts[event.currentTarget.position] ;
+					this.dispatch('selectedContact',selected)
+					
+				}
 
 			}
 

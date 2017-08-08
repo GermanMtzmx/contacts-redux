@@ -14,13 +14,17 @@
 		switch(action.type) {
 
 			case 'ADD_CONTACT':
-				console.log('redux state',state,action);
 				let tpmContact = state.contacts.splice(0)
 				tpmContact.push(action.obj)
-				//poc 
+
 				return Object.assign({},state,{
 					contacts:tpmContact
 				});
+
+			case 'CONTACT_SELECTION':
+				return Object.assign({},state,{
+					contactSelected:action.selected
+				})
 
 			default:
 				return state;
