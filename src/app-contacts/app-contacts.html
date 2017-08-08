@@ -10,10 +10,10 @@
 	<template>
 		<h3>List Contacts</h3>
 		<app-add-contact></app-add-contact>
-
-<!-- 		<template is="dom-repeat" items="[[]]">
-			
-		</template> -->
+		
+		<template is="dom-repeat" items="[[contacts]]" as="contact">
+			<p>[[index]] , [[contact.name]]</p>
+		</template>
 
 
 	</template>

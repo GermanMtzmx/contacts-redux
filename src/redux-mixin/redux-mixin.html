@@ -14,8 +14,13 @@
 		switch(action.type) {
 
 			case 'ADD_CONTACT':
-				//should clone state and then returnit
-				return state
+				console.log('redux state',state,action);
+				let tpmContact = state.contacts.splice(0)
+				tpmContact.push(action.obj)
+				//poc 
+				return Object.assign({},state,{
+					contacts:tpmContact
+				});
 
 			default:
 				return state;

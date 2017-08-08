@@ -1,11 +1,42 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../redux-mixin/redux-mixin.html">
 
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+
 
 
 <dom-module id="app-add-contact">
 	<template>
+
+		<style>
+			#dialog {
+				width: 350px;
+			}
+		</style>
 		<h2>Should be a button and open modal</h2>
+
+		<!-- buton -->
+		<paper-fab icon="social:group-add" on-click="_openModal" title="add contact"></paper-fab>
+		<!-- end button -->
+
+		<paper-dialog id="dialog">
+		  <h2>Agregar nuevo contacto</h2>
+		  <paper-input value="{{newContact.name}}" label="nombre"></paper-input>
+		  <paper-input value="{{newContact.lastName}}"  label="Apellidos"></paper-input>
+		  <paper-input value="{{newContact.image}}"  label="Imagen de perfil"></paper-input>
+		  <paper-textarea value="{{newContact.bio}}"  rows="2" maxlength="150" max-rows="3" char-counter label="Acerca de mi"></paper-textarea>
+
+		  <div class="buttons">
+		    <paper-button dialog-dismiss>Cancelar</paper-button>
+		    <paper-button dialog-confirm autofocus on-click="_addContact">Aceptar</paper-button>
+		  </div>				
+		</paper-dialog>
 	</template>
 
 	<script>
@@ -20,9 +51,45 @@
 				static get properties() {
 					return {
 						newContact:{
-							type:Object
+							type:Object,
+							observer:'_newContactChanged',
+							value:{}
 						}
 					}
+				}
+
+
+				static get actions() {
+					return {
+
+						addContact(obj) {
+							return {
+								type:'ADD_CONTACT',
+								obj
+							}
+						}
+					}
+				}
+
+
+				_openModal(){
+					console.log('opened')
+					this.$.dialog.open()
+				}
+
+				_newContactChanged(){
+					console.log("newContact changed")
+				}
+
+				_addContact(){
+
+					console.log("new c ",this.newContact);
+
+					// sending to redux
+					this.dispatch('addContact',this.newContact);
+
+					// clears the newContact object
+					this.set('newContact',{})
 				}
 			}
 
