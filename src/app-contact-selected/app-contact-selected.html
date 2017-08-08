@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../redux-mixin/redux-mixin.html">
+
+<dom-module id="app-contact-selected">
+	
+	<template>
+		<a href="/contacts">Volver a la lista de contactos ..</a>
+		<h2>Current contact selected is [[contactSelected.name]] [[contactSelected.lastName]]</h2>
+		
+	</template>
+
+	<script>
+		(function CSelected(customElements){
+			'use strict';
+			class AppContactSelected extends ReduxMixin(Polymer.Element){
+
+				static get is(){return 'app-contact-selected'};
+
+				static get properties(){
+					return {
+						contactSelected:{
+							type:Object,
+							statePath:'contactSelected'
+						}
+					}
+				}
+			}
+
+			customElements.define(AppContactSelected.is,AppContactSelected);
+		})(window.customElements);
+	</script>
+
+
+</dom-module>

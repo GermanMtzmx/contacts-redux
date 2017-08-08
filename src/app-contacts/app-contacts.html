@@ -12,7 +12,10 @@
 		<app-add-contact></app-add-contact>
 		
 		<template is="dom-repeat" items="[[contacts]]" as="contact">
+			<a href="/current">
 			<p position="[[index]]" on-click="_choose"> [[index]] , [[contact.name]]</p>
+				
+			</a>
 		</template>
 
 

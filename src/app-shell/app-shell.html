@@ -7,6 +7,7 @@
 <!-- elements import  -->
 
 <link rel="import" href="../app-contacts/app-contacts.html">
+<link rel="import" href="../app-contact-selected/app-contact-selected.html">
 
 <dom-module id="app-shell">
 
@@ -20,6 +21,7 @@
 
 		<iron-pages selected="[[routeData.view]]" attr-for-selected="view" fallback-selection="default">
 			<app-contacts view="contacts"></app-contacts>
+			<app-contact-selected view="current"></app-contact-selected>
 			<div view="default"> Default content</div>
 		</iron-pages>
 
