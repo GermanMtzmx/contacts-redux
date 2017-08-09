@@ -1,9 +1,8 @@
 {
 	"es":{
 		"listComponentTitle":"Mis contactos",
-		"shellTitle":"PRList",
+		"shellTitle":"App v0.1",
 		"currentContact":"contacto seleccionado: ",
-
 		"modalTitle": "Agregar nuevo contacto",
 		"newContactTitle":"Agregar nuevo contacto",
 		"name":"Nombre",
@@ -11,6 +10,9 @@
 		"imageProfile":"Imagen de perfil (link)",
 		"bio":"Acerca de mi",
 		"buttonDismiss":"Cancelar",
-		"buttonAccept":"Aceptar"
+		"buttonAccept":"Aceptar",
+		"backToContacts": "Regresar a la lista de contactos",
+		"menuList":"Lista de contactos"
+
 	}
 }

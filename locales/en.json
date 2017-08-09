@@ -1,7 +1,7 @@
 {
 	"en":{
 		"listComponentTitle":"My contacts",
-		"shellTitle":"PRList",
+		"shellTitle":"App v0.1",
 		"currentContact":"Selected contact is:",
 		"modalTitle": "Add new contact",
 		"newContactTitle":"Add new contact",
@@ -10,7 +10,9 @@
 		"imageProfile":"Profile image (src)",
 		"bio":"About me",
 		"buttonDismiss":"Cancel",
-		"buttonAccept":"Accept"
+		"buttonAccept":"Accept",
+		"backToContacts": "Return to contact list",
+		"menuList":"Contact list"
 
 
 	}

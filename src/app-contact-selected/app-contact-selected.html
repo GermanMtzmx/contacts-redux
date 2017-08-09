@@ -5,8 +5,91 @@
 <dom-module id="app-contact-selected">
 	
 	<template>
-		<a href="/contacts">Volver a la lista de contactos ..</a>
-		<h2>[[localize('currentContact')]][[contactSelected.name]] [[contactSelected.lastName]]</h2>
+
+		<style>
+
+			.container {
+				display: block;
+				width: 90%;
+				box-sizing: border-box;
+				margin:10px auto;
+			}
+			.imgSelected {
+				width: 210px;
+				height: 231px;
+				border-radius: 6px;
+			}
+
+			.return {
+				color: #f44336;
+				font-weight: bold;
+				font-size: 14px;
+				cursor: pointer;
+				text-transform: uppercase;
+			}
+
+			.sub-container {
+				display: inline-block;
+				width: 21%;
+			}
+
+			.info-container {
+				display: inline-block;
+				width: 60%;
+
+				vertical-align: top;
+			}
+
+			.contactName {
+				font-size: 1.8rem;
+				text-transform: capitalize;
+				color: #424242;				
+			}
+
+			.bioTitle {
+				display: block;
+				margin: 20px 0;
+				font-size: 1.3rem;
+				color: #424242;				
+			}
+
+			.paragraph {
+				font-size: 1.2rem;
+				font-style: italic;
+				line-height: 30px;				
+			}
+		</style>
+
+
+
+		<div class="container">
+
+			<div class="sub-container">
+				<img class="imgSelected" src="[[contactSelected.image]]" alt="[[contactSelected.name]]">
+				
+				
+				
+			</div>
+
+			<div class="info-container">
+				<strong class="contactName">[[contactSelected.name]] [[contactSelected.lastName]]</strong>
+
+				<strong class="bioTitle">
+					[[localize('bio')]]
+				</strong>
+				<p class="paragraph">
+
+					[[contactSelected.bio]]
+				
+				</p>
+			</div>
+
+	
+		</div>
+
+		<div class="container">
+			<a  class="return" href="/contacts">[[localize('backToContacts')]]</a>
+		</div>		
 		
 	</template>
 
