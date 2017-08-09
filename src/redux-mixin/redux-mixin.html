@@ -26,7 +26,12 @@
 			case 'CONTACT_SELECTION':
 				return Object.assign({},state,{
 					contactSelected:action.selected
-				})
+				});
+
+			case 'LANG_CHANGED':
+				return Object.assign({},state,{
+					language:action.selected
+				});
 
 			default:
 				return state;

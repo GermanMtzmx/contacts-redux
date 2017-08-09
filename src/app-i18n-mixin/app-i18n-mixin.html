@@ -17,19 +17,21 @@
 						type:String,
 						statePath:'language',
 						observer: '_resolveLanguage',
-						value:'en'
 					}
 				}
 			}
 
 			connectedCallback(){
 				
-				this.loadResources(this.resolveUrl(`/locales/${this.language}.json`));
+				this.loadResources(this.resolveUrl(`/locales/en.json`));
 
 			}
 
 			_resolveLanguage(){
-				console.log('switch language  papu');
+				console.log('switch language  papu',this.language);
+				let testing =  this.loadResources(this.resolveUrl(`/locales/${this.language}.json`));
+
+				console.log(testing);
 				this.loadResources(this.resolveUrl(`/locales/${this.language}.json`));
 
 			}

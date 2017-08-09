@@ -26,9 +26,9 @@
 
 		</style>
 		<paper-dropdown-menu  class="dropdown" label="Language">
-		  <paper-listbox slot="dropdown-content"  selected="1">
+		  <paper-listbox slot="dropdown-content" selected="0">
 			<template is="dom-repeat" items="[[langs]]" as="lng">
-				<paper-item class="item" index="[[index]]">[[lng]]</paper-item>				
+				<paper-item class="item"s on-click="_triggerLang" index="[[index]]">[[lng]]</paper-item>				
 			</template>
 		  </paper-listbox>
 		</paper-dropdown-menu>			
@@ -45,7 +45,8 @@
 					return {
 						language:{
 							type:String,
-							statePath:'language'
+							statePath:'language',
+				
 						},
 						langs:{
 							type:Array,
@@ -54,9 +55,27 @@
 					}
 				}
 
+
+				static get actions(){
+					return {
+						updateLang(selected){
+							return {
+								type:'LANG_CHANGED',
+								selected
+							}
+						}
+					}
+				}
+
 				connectedCallback(){
 					super.connectedCallback();
 					console.log(this.langs)
+				}
+
+
+				_triggerLang(event){
+					let selected = this.langs[event.currentTarget.index]
+					this.dispatch('updateLang',selected)
 				}
 
 			}
