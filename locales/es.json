@@ -1,5 +1,16 @@
 {
 	"es":{
-		"listComponentTitle":"Lista de contactos prro :v"
+		"listComponentTitle":"Mis contactos",
+		"shellTitle":"PRList",
+		"currentContact":"contacto seleccionado: ",
+
+		"modalTitle": "Agregar nuevo contacto",
+		"newContactTitle":"Agregar nuevo contacto",
+		"name":"Nombre",
+		"lastName":"Apellidos",
+		"imageProfile":"Imagen de perfil (link)",
+		"bio":"Acerca de mi",
+		"buttonDismiss":"Cancelar",
+		"buttonAccept":"Aceptar"
 	}
 }

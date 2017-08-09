@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../redux-mixin/redux-mixin.html">
-
+<link rel="import" href="../app-i18n-mixin/app-i18n-mixin.html">
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
@@ -19,20 +19,21 @@
 				width: 350px;
 			}
 		</style>
+
 		<!-- buton -->
-		<paper-fab icon="social:group-add" on-click="_openModal" title="add contact"></paper-fab>
+		<paper-fab icon="social:group-add" on-click="_openModal" title="[[localize('modalTitle')]]"></paper-fab>
 		<!-- end button -->
 
 		<paper-dialog id="dialog">
-		  <h2>Agregar nuevo contacto</h2>
-		  <paper-input value="{{newContact.name}}" label="nombre"></paper-input>
-		  <paper-input value="{{newContact.lastName}}"  label="Apellidos"></paper-input>
-		  <paper-input value="{{newContact.image}}"  label="Imagen de perfil"></paper-input>
-		  <paper-textarea value="{{newContact.bio}}"  rows="2" maxlength="150" max-rows="3" char-counter label="Acerca de mi"></paper-textarea>
+		  <h2>[[localize('newContactTitle')]]</h2>
+		  <paper-input value="{{newContact.name}}" label="[[localize('name')]]"></paper-input>
+		  <paper-input value="{{newContact.lastName}}"  label="[[localize('lastName')]]"></paper-input>
+		  <paper-input value="{{newContact.image}}"  label="[[localize('imageProfile')]]"></paper-input>
+		  <paper-textarea value="{{newContact.bio}}"  rows="2" maxlength="150" max-rows="3" char-counter label="[[localize('bio')]]"></paper-textarea>
 
 		  <div class="buttons">
-		    <paper-button dialog-dismiss>Cancelar</paper-button>
-		    <paper-button dialog-confirm autofocus on-click="_addContact">Aceptar</paper-button>
+		    <paper-button dialog-dismiss>[[localize('buttonDismiss')]]</paper-button>
+		    <paper-button dialog-confirm autofocus on-click="_addContact">[[localize('buttonAccept')]]</paper-button>
 		  </div>				
 		</paper-dialog>
 	</template>
@@ -43,7 +44,7 @@
 			
 			'use strict';
 
-			class AppAddContact extends ReduxMixin(Polymer.Element){
+			class AppAddContact extends ReduxMixin(TranslateMixin(Polymer.Element)){
 				static get is(){return 'app-add-contact';}
 
 				static get properties() {
@@ -71,7 +72,7 @@
 
 
 				_openModal(){
-					console.log('opened')
+					console.log('opened',this.localize('listComponentTitle'))
 					this.$.dialog.open()
 				}
 

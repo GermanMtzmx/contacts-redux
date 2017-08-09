@@ -1,18 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../redux-mixin/redux-mixin.html">
+<link rel="import" href="../app-i18n-mixin/app-i18n-mixin.html">
 
 <dom-module id="app-contact-selected">
 	
 	<template>
 		<a href="/contacts">Volver a la lista de contactos ..</a>
-		<h2>Current contact selected is [[contactSelected.name]] [[contactSelected.lastName]]</h2>
+		<h2>[[localize('currentContact')]][[contactSelected.name]] [[contactSelected.lastName]]</h2>
 		
 	</template>
 
 	<script>
 		(function CSelected(customElements){
 			'use strict';
-			class AppContactSelected extends ReduxMixin(Polymer.Element){
+			class AppContactSelected extends ReduxMixin(TranslateMixin(Polymer.Element)){
 
 				static get is(){return 'app-contact-selected'};
 

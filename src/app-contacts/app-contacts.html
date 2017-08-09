@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../redux-mixin/redux-mixin.html">
 <link rel="import" href="../app-i18n-mixin/app-i18n-mixin.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
 
 
@@ -9,15 +10,80 @@
 
 <dom-module id="app-contacts">
 	<template>
-		<h3>-- [[localize('listComponentTitle')]] ...</h3>
-		<app-add-contact></app-add-contact>
 		
-		<template is="dom-repeat" items="[[contacts]]" as="contact">
-			<a href="/current">
-			<p position="[[index]]" on-click="_choose"> [[index]] , [[contact.name]]</p>
+		<style>
+			.imageChip {
+				width: 60px;
+				height: 60px;
+				border-radius: 50px;
+				margin-right: 10px;
+			}
+
+			.chip {
+
+				box-sizing: border-box;
+				padding: 10px;
+				font-size: 20px;
+				font-weight: bold;
+				text-transform: uppercase;				
+			}
+
+			.chip:hover {
+				background-color: #fafafa;
+			}
+
+			.toSelected {
+				text-decoration: none;
+				color:#424242;
+				font-size: 20px;
+
+			}
+
+			.fabContainer {
+				width: 70px;
+				box-sizing: border-box;
+				float: right;
+				display: block;
+				position: absolute;
+				top: 70px;
+				right: 10px;
+
+			}
+
+			.fabAdd {
 				
-			</a>
-		</template>
+				display: block;
+
+			}
+
+			paper-listbox {
+				display: block;
+			}
+
+		</style>
+
+		<h3>[[localize('listComponentTitle')]]</h3>
+
+		<div class="fabContainer">
+			<app-add-contact class="fabAdd"></app-add-contact>			
+		</div>
+
+
+
+		
+
+		<paper-listbox>
+			<template is="dom-repeat" items="[[contacts]]" as="contact">
+				<a class="toSelected" href="/current">
+					<paper-item class="chip" position="[[index]]" on-click="_choose">
+						<img class="imageChip" src="[[contact.image]]" alt="[[contact.name]]">
+						[[contact.name]] [[contact.lastName]]
+					</paper-item>					
+				</a>
+			</template>
+			
+		</paper-listbox>
+
 
 
 	</template>

@@ -1,5 +1,17 @@
 {
 	"en":{
-		"listComponentTitle":"List of contacts :v"
+		"listComponentTitle":"My contacts",
+		"shellTitle":"PRList",
+		"currentContact":"Selected contact is:",
+		"modalTitle": "Add new contact",
+		"newContactTitle":"Add new contact",
+		"name":"Name",
+		"lastName":"Last name",
+		"imageProfile":"Profile image (src)",
+		"bio":"About me",
+		"buttonDismiss":"Cancel",
+		"buttonAccept":"Accept"
+
+
 	}
 }

@@ -19,6 +19,7 @@
     "paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
     "paper-item": "PolymerElements/paper-item#^2.0.0",
     "neon-animation": "PolymerElements/neon-animation#^2.0.1",
-    "web-animations-js": "^2.3.1"
+    "web-animations-js": "^2.3.1",
+    "app-layout": "PolymerElements/app-layout#^2.0.1"
   }
 }
