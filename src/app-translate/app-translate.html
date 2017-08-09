@@ -1,0 +1,67 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../redux-mixin/redux-mixin.html">
+<link rel="import" href="../../bower_components/neon-animation/web-animations.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+
+
+<dom-module id="app-translate">
+	<template>
+		<style>
+
+			.dropdown {
+				width: 80px;
+
+			}
+
+			.item {
+				width: 50px;
+				overflow:hidden;
+
+			}
+			
+
+
+		</style>
+		<paper-dropdown-menu  class="dropdown" label="Language">
+		  <paper-listbox slot="dropdown-content"  selected="1">
+			<template is="dom-repeat" items="[[langs]]" as="lng">
+				<paper-item class="item" index="[[index]]">[[lng]]</paper-item>				
+			</template>
+		  </paper-listbox>
+		</paper-dropdown-menu>			
+	</template>
+
+	<script>
+		(function Translation(customElements){
+			'use strict';
+			class AppTranslate extends ReduxMixin(Polymer.Element){
+
+				static get is(){return 'app-translate';}
+
+				static get properties(){
+					return {
+						language:{
+							type:String,
+							statePath:'language'
+						},
+						langs:{
+							type:Array,
+							statePath:'langs'
+						}
+					}
+				}
+
+				connectedCallback(){
+					super.connectedCallback();
+					console.log(this.langs)
+				}
+
+			}
+
+			customElements.define(AppTranslate.is,AppTranslate);
+		})(window.customElements);
+	</script>
+</dom-module>

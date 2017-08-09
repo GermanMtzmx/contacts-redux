@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../redux-mixin/redux-mixin.html">
+
+
+<script>
+
+	TranslateMixin = function(superClass){
+
+		return class extends Polymer.mixinBehaviors([Polymer.AppLocalizeBehavior],superClass){
+
+			constructor(){
+				super();
+			}
+			static get properties(){
+				return {
+					language:{
+						type:String,
+						statePath:'language',
+						observer: '_resolveLanguage',
+						value:'en'
+					}
+				}
+			}
+
+			connectedCallback(){
+				
+				this.loadResources(this.resolveUrl(`/locales/${this.language}.json`));
+
+			}
+
+			_resolveLanguage(){
+				console.log('switch language  papu');
+				this.loadResources(this.resolveUrl(`/locales/${this.language}.json`));
+
+			}
+		}
+
+	};
+</script>

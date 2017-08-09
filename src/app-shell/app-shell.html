@@ -8,11 +8,13 @@
 
 <link rel="import" href="../app-contacts/app-contacts.html">
 <link rel="import" href="../app-contact-selected/app-contact-selected.html">
+<link rel="import" href="../app-translate/app-translate.html">
 
 <dom-module id="app-shell">
 
 	<template>
 		<h1>Im shell</h1>
+		<app-translate></app-translate>
 		<app-location route="{{currentRoute}}"></app-location>
 
 		<app-route route="[[currentRoute]]" pattern="/:view" data="{{routeData}}"></app-route>
